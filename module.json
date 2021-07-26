@@ -2,7 +2,7 @@
 	"name": "warfare-sheet",
 	"title": "Warfare Sheet",
 	"description": "This module adds an additional NPC sheet which can be used for Warfare Units conforming to MCDMs Kingdoms & Warfare ruleset.",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"minimumCoreVersion": "0.8.5",
 	"compatibleCoreVersion": "0.8.8",
 	"author": "Termilion",
