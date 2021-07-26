@@ -11,6 +11,11 @@
     align-content: center;
 }
 
+.unit-sidebar .sheet-profile {
+    width: 120px;
+    height: 120px;
+}
+
 .unit-table {
     border-right: solid;
     border-left: solid;
@@ -123,8 +128,8 @@
 }
 
 .ability-name, 
-.sheet-content h1, .sheet-content h2, .sheet-content h3, .sheet-content h4, 
-.sheet-content .attributes input, .unit-footer input,
-.sheet-content label, .sheet-sidebar label {
+.unit-content h1, .unit-content h2, .unit-content h3, .unit-content h4, 
+.unit-content .attributes input, .unit-footer input,
+.unit-content label, .unit-sidebar label {
     font-family: "Modesto Condensed", "Palatino Linotype", serif;
 }
