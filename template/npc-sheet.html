@@ -1,0 +1,104 @@
+<form class="{{cssClass}}" autocomplete="off">
+
+    <section class="sheet-lower flexrow">
+
+        <!-- SIDEBAR -->
+        <section class="sheet-sidebar sidebar unit-sidebar">
+            <div class="sheet-profile-img">
+                <img class="sheet-profile" src="{{actor.img}}" title="{{actor.name}}" data-edit="img"/>
+            </div>
+            <div class="unit-attackNumber big-value">
+                <input name="numAtk" type="number" value="{{numAtk}}" placeholder="1"/>
+                <label>NUM ATK</label>
+            </div>
+            <div class="unit-dmg big-value">
+                <input name="dmg" type="number" value="{{dmg}}" placeholder="1"/>
+                <label>DMG</label>
+            </div>
+        </section>
+
+        <!-- BODY -->
+
+        <section class="sheet-content content">
+            <section class="unit-header">
+                <div>
+                    <h2>
+                        <input name="name" type="text" value="{{actor.name}}" placeholder="Character Name"/>
+                    </h2>
+                    <div class="attributes">
+                        <h3>Commander: <input name="commander" type="text" value="{{commander}}" placeholder="" data-dtype="String"/></h3>
+                        <input name="attributes" type="text" value="{{attributes}}" placeholder="" data-dtype="String"/>
+                    </div>
+                </div>
+                <div class="unit-size big-value">
+                    <input name="size" type="number" value="{{size}}" placeholder="6"/>
+                    <label>SIZE</label>
+                </div>
+                
+            </section>
+
+            <table class="unit-table">
+                <tbody>
+                    <tr>
+                        <th>ATK</th>
+                        <th>DEF</th>
+                        <th>POW</th>
+                        <th>TOU</th>
+                        <th>MOR</th>
+                        <th>COM</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="attribute-value single">
+                                <input class="modifier" name="atk" type="number" value="{{atk}}" placeholder="0" data-dtype="String"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="attribute-value single">
+                                <input name="def" type="number" value="{{def}}" placeholder="10" data-dtype="String"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="attribute-value single">
+                                <input class="modifier" name="pow" type="number" value="{{pow}}" placeholder="0" data-dtype="String"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="attribute-value single">
+                                <input name="tou" type="number" value="{{tou}}" placeholder="10" data-dtype="String"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="attribute-value single">
+                                <input class="modifier" name="mor" type="number" value="{{mor}}" placeholder="0" data-dtype="String"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="attribute-value single">
+                                <input class="modifier" name="com" type="number" value="{{com}}" placeholder="0" data-dtype="String"/>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <section class="sheet-content content">
+                <h2 class="trait-title">
+                    Traits:
+                </h2>
+                <div class="unit-footer">
+                    <div class="unit-traits">
+                        <input name="trait_one" type="text" value="{{trait_one}}" placeholder="" data-dtype="String"/>
+                        <input name="trait_two" type="text" value="{{trait_two}}" placeholder="" data-dtype="String"/>
+                        <input name="trait_three" type="text" value="{{trait_three}}" placeholder="" data-dtype="String"/>
+                        <input name="trait_four" type="text" value="{{trait_four}}" placeholder="" data-dtype="String"/>
+                        <input name="trait_five" type="text" value="{{trait_five}}" placeholder="" data-dtype="String"/>
+                    </div>
+                    <div class="unit-tier big-value">
+                        <input name="tier" type="text" value="{{tier}}" placeholder="I"/>
+                        <label>TIER</label>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </section>
+</form>
