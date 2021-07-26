@@ -1,3 +1,5 @@
+
+
 .unit-sidebar {
     max-width: 120px;
     height: 100%;
@@ -6,6 +8,7 @@
     border-right: solid;
     border-width: 1px;
     border-color: black;
+    align-content: center;
 }
 
 .unit-table {
@@ -26,7 +29,11 @@
     display: grid;
     grid-template: "a" 100px "b" 20px;
     padding-left: 10px;
-    padding-right: 10px;
+}
+
+.sheet-sidebar .big-value {
+    padding-left: 5px;
+    padding-bottom: 5px;
 }
 
 .big-value input {
@@ -109,6 +116,15 @@
     text-transform: uppercase;
 }
 
-.positive {
-    background-color: green;
+.rollable:hover {
+    color: #000;
+    text-shadow: 0 0 10px red;
+    cursor: pointer;
+}
+
+.ability-name, 
+.sheet-content h1, .sheet-content h2, .sheet-content h3, .sheet-content h4, 
+.sheet-content .attributes input, .unit-footer input,
+.sheet-content label, .sheet-sidebar label {
+    font-family: "Modesto Condensed", "Palatino Linotype", serif;
 }

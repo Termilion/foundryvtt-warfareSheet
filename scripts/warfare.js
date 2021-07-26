@@ -13,6 +13,39 @@ class WarfareSheet extends ActorSheet {
         }
     }
 
+    async roll(attr) {
+        let targets = Array.from(game.user.targets);
+        console.log(targets);
+
+        let modifier = await this.actor.getFlag(this.moduleName, attr);
+        let r = new Roll("1d20 + @mod", {mod: modifier});
+        r.evaluate();
+        let total = r.total;
+        r.toMessage();
+
+        if (targets.length > 0 && (attr === "atk" || attr === "pow")) {
+            targets.forEach(async t => {
+                console.log(t);
+                let targetAttr = attr === "atk" ? "def" : "tou";
+                let dc = await t.actor.getFlag(this.moduleName, targetAttr);
+                let type = attr === "atk" ? "Attack Roll" : "Power Roll";
+                let success = total >= dc;
+                let color = success ? "green": "red";
+                let msg = success ? "Success": "Failure";
+                ChatMessage.create(
+                    {
+                        user: game.user._id,
+                        speaker: {
+                            actor: this.actor,
+                            alias: this.actor.name
+                        },
+                        content: `${type} against ${t.actor.name} (<b>DC ${dc}</b>): <span style="color:${color}">${msg}: ${total}!</span>`
+                    }
+                );
+            });
+        }
+    }
+
     get template() {
         // adding the #equals and #unequals handlebars helper
         Handlebars.registerHelper('equals', function (arg1, arg2, options) {
@@ -41,9 +74,6 @@ class WarfareSheet extends ActorSheet {
 
     async getData() {
         const sheetData = super.getData();
-
-        if (game.user.isGM) sheetData.isGM = true;
-        else sheetData.isGM = false;
 
         // Base Attributes
         let atkModifier = await this.actor.getFlag(this.moduleName, "atk");
@@ -181,6 +211,11 @@ class WarfareSheet extends ActorSheet {
 
         html.find('input').on("blur", ev => this.changeValue(ev));
         html.find('input').on("keydown", ev => this.keyDown(ev));
+
+        html.find('#atkHandle').click(ev => this.roll("atk"));
+        html.find('#powHandle').click(ev => this.roll("pow"));
+        html.find('#morHandle').click(ev => this.roll("mor"));
+        html.find('#comHandle').click(ev => this.roll("com"));
     }
 }
 
